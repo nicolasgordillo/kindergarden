@@ -21,8 +21,8 @@ namespace Kindergarden.Domain.Entities
         public bool Confirmed { get; set; }
         public DateTime? ConfirmedDate { get; set; }
 
-        public Teacher SentTo { get; set; }
-        public Kin SentBy { get; set; }
+        public Person SentTo { get; set; }
+        public Person SentBy { get; set; }
         public Student Regarding { get; set; }
     }
 }
