@@ -13,13 +13,18 @@ Dentro de la API existen varios proyectos, que se compilan por separado y corres
 Contiene entidades, enumerativos, excepciones, tipos y lógica específica del dominio. Las clases relacionadas con Entity Framework son abstractas, y pueden considerarse junto con .NET Core. Es agnóstico de una implementación de base de datos en particular, pudiendo probarse con un providers InMemory, SqlLite, Sql Server y otros.
 
 ## Application
-Contiene lógica de la aplicación, depende de la capa de dominio pero de ninguna otra. Define interfaces que serán luego implementadas por otras capas.
+Contiene lógica de la aplicación, depende de la capa de dominio pero de ninguna otra. Define interfaces que serán luego implementadas por otras capas. Utiliza AutoMapper, FluentValidation y MediatR (ver referencias). Tiene también una referencia a Persistence, del cual obtiene el contexto.
 
 ## Infrastructure
 Contiene clases para acceder a recursos externos tales como file systems, web services, smtp, y demás. Estas clases deben estar basadas en las interfaces definidas en Application.
 
 ## Persistence
-Implementa la capa de persistencia. Aquí tenemos la dependencia a Entity Framework Core. También hacemos referencia a Domain, cuyo modelo se persistirá.
+Implementa la capa de persistencia y contiene toda la configuración para mapear los objetos de dominio en un modelo relacional. 
+Contiene una referencia a Domain, cuyo modelo se persistirá. Hay también referencias a EF Core y Microsoft.EntityFrameworkCore.SqlServer ya que es el motor de base de datos elegido.
+
+# Cómo usar
+
+# Cómo cambiar de opciones de persitencia
 
 # Referencias
 Trabajo basado en la implementación de Jason Taylor de Clean Architecture.
