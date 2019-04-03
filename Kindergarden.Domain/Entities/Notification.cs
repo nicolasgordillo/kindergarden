@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kindergarden.Domain.Entities
 {
-    /* This class represents a notification from kindergarden to parents */
+    /* Esta clase representa una notificación del jardín a los padres. Tiene texto libre. */
     public class Notification
     {
         public int Id { get; set; }
