@@ -9,7 +9,7 @@ namespace Kindergarden.Domain.Entities
         public Group()
         {
             //Initialized by DI or EF. It has private access so nobody can accidentally set it's value
-            FamilyMembers = new HashSet<Kin>();
+            FamilyMembers = new HashSet<Person>();
             Notifications = new HashSet<Notification>();
         }
 
@@ -21,8 +21,8 @@ namespace Kindergarden.Domain.Entities
         public string TimeSpan { get; set; } //Turno
         public bool Active { get; set; }
 
-        public Teacher Teacher { get; set; }
-        public ICollection<Kin> FamilyMembers { get; private set; } //ICollection implements IEnumerable
+        public Person Teacher { get; set; }
+        public ICollection<Person> FamilyMembers { get; private set; } //ICollection implements IEnumerable
         public ICollection<Notification> Notifications { get; private set; }
     }
 }

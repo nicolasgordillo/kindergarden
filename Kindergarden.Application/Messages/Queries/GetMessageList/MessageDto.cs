@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kindergarden.Application.Messages.Queries.GetMessageDetail
+namespace Kindergarden.Application.Messages.Queries.GetMessageList
 {
-    public class MessageDetailViewModel : IHaveCustomMappings
+    public class MessageDto : IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -20,16 +20,12 @@ namespace Kindergarden.Application.Messages.Queries.GetMessageDetail
         public bool Confirmed { get; set; }
         public DateTime? ConfirmedDate { get; set; }
 
-        public Person SentToFullName { get; set; }
-        public Person SentByFullName { get; set; }
-        public Student RegardingStudentFullName { get; set; }
+        public string RegardingStudentFullName { get; set; }
 
         public void CreateMappings(Profile configuration)
         {
-            configuration.CreateMap<Message, MessageDetailViewModel>()
+            configuration.CreateMap<Message, MessageDto>()
                 .ForMember(pDTO => pDTO.TypeDescription, opt => opt.MapFrom(m => m.Type != null ? m.Type.Description : string.Empty))
-                .ForMember(pDTO => pDTO.SentToFullName, opt => opt.MapFrom(m => m.SentTo != null ? m.SentTo.FirstName + " " + m.SentTo.LastName : string.Empty))
-                .ForMember(pDTO => pDTO.SentByFullName, opt => opt.MapFrom(m => m.SentBy != null ? m.SentBy.FirstName + " " + m.SentBy.LastName : string.Empty))
                 .ForMember(pDTO => pDTO.RegardingStudentFullName, opt => opt.MapFrom(m => m.Regarding != null ? m.Regarding.FirstName + " " + m.Regarding.LastName : string.Empty));
         }
     }

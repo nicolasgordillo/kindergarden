@@ -6,10 +6,6 @@ namespace Kindergarden.Domain.Entities
 {
     public class PrivateNotification
     {
-        public bool Read { get; set; }
-        public bool Confirmed { get; set; }
-        public bool Deleted { get; set; }
-
-        public Kin Receiver { get; set; }
+        public Person Receiver { get; set; }
     }
 }

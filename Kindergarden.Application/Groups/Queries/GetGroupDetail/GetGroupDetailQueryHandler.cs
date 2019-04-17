@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Kindergarden.Application.Notifications.Queries.GetNotificationDetail
+namespace Kindergarden.Application.Groups.Queries.GetGroupDetail
 {
     public class GetGroupDetailQueryHandler
     {
@@ -22,16 +22,16 @@ namespace Kindergarden.Application.Notifications.Queries.GetNotificationDetail
 
         public async Task<GroupDetailViewModel> Handle(GetGroupDetailQuery request, CancellationToken cancellationToken)
         {
-            var notification = _mapper.Map<GroupDetailViewModel>(await _context
-                .Notifications.Where(x => x.Id == request.Id)
+            var group = _mapper.Map<GroupDetailViewModel>(await _context
+                .Groups.Where(x => x.Id == request.Id)
                 .SingleOrDefaultAsync(cancellationToken));
 
-            if (notification == null)
+            if (group == null)
             {
-                throw new NotFoundException(nameof(Notification), request.Id);
+                throw new NotFoundException(nameof(Group), request.Id);
             }
 
-            return notification;
+            return group;
         }
     }
 }

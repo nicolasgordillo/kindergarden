@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Kindergarden.Application.Notifications.Queries.GetNotificationDetail
+namespace Kindergarden.Application.Groups.Queries.GetGroupDetail
 {
     public class GetGroupDetailQuery : IRequest<GroupDetailViewModel>
     {

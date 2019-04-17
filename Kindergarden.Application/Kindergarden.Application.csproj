@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Messages\Commands\" />
-    <Folder Include="Exceptions\" />
     <Folder Include="Notifications\Commands\" />
   </ItemGroup>
 
@@ -18,7 +17,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Kindergarden.Domain\Kindergarden.Domain.csproj" />
-    <ProjectReference Include="..\Kindergarden.Persistence\Kindergarden.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.1.1\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

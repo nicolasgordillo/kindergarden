@@ -8,14 +8,14 @@ namespace Kindergarden.Domain.Entities
     {
         public GroupNotification()
         {
-            ReadBy = new HashSet<Kin>();
-            ConfirmedBy = new HashSet<Kin>();
-            DeletedBy = new HashSet<Kin>();
+            ReadBy = new HashSet<Person>();
+            ConfirmedBy = new HashSet<Person>();
+            DeletedBy = new HashSet<Person>();
         }
 
-        public ICollection<Kin> ReadBy { get; private set; }
-        public ICollection<Kin> ConfirmedBy { get; private set; }
-        public ICollection<Kin> DeletedBy { get; private set; }
+        public ICollection<Person> ReadBy { get; private set; }
+        public ICollection<Person> ConfirmedBy { get; private set; }
+        public ICollection<Person> DeletedBy { get; private set; }
 
         public Group Receiver { get; set; }
     }

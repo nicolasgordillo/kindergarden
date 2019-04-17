@@ -33,6 +33,7 @@ namespace Kindergarden.Domain.Entities
         public ICollection<Group> Groups { get; private set; }
         public ICollection<Message> SentMessages { get; private set; }
         public ICollection<Message> ReceivedMessages { get; private set; }
+        public ICollection<PersonNotification> ReceivedNotifications { get; private set; }
         public ICollection<StudentFamilyMember> Students { get; private set; }
     }
 }

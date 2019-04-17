@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Kindergarden.Domain.Entities
 {
-    /* This class represents a message from parents to kindergarden
-     * They are limited to certain types of messages, not an open chat
-     * For example, student sickness
+    /* Esta clase representa un mensaje de los padres al jardín
+     * Se encuentran limitados a ciertos tipos, no es un chat abierto.
+     * Por ejemplo, se puede utilzar para enviar aviso de enfermedad (eventualmente un certificado), llegada tarde, etc.
      */
     public class Message
     {
@@ -20,6 +20,8 @@ namespace Kindergarden.Domain.Entities
         public DateTime? ReadDate { get; set; }
         public bool Confirmed { get; set; }
         public DateTime? ConfirmedDate { get; set; }
+        public bool Deleted { get; set; }
+        public DateTime? DeletedDate { get; set; }
 
         public Person SentTo { get; set; }
         public Person SentBy { get; set; }

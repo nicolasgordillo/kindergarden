@@ -6,5 +6,6 @@ namespace Kindergarden.Application.Groups.Queries.GetGroupList
 {
     public class GroupListViewModel
     {
+        public IEnumerable<GroupDto> Groups { get; set; }
     }
 }
