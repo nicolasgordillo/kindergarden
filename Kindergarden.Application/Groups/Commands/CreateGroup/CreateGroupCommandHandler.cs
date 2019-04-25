@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Kindergarden.Application.Groups.Commands.CreateGroup
 {
-    public class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand, int>
+    public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, int>
     {
         private readonly IKindergardenContext _context;
 
-        public UpdateGroupCommandHandler(IKindergardenContext context)
+        public CreateGroupCommandHandler(IKindergardenContext context)
         {
             _context = context;
         }
 
-        public async Task<int> Handle(UpdateGroupCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
         {
             var entity = new Group
             {

@@ -16,6 +16,8 @@ namespace Kindergarden.Application.Interfaces
 
         DbSet<Message> Messages { get; set; }
 
+        DbSet<MessageType> MessageTypes { get; set; }
+
         DbSet<Person> Persons { get; set; }
 
         DbSet<Student> Students { get; set; }

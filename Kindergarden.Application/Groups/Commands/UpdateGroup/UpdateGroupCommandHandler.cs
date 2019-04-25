@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Kindergarden.Application.Groups.Commands.UpdateGroup
 {
-    public class UpdateGroupCommandHandler : IRequestHandler<DeleteGroupCommand, Unit>
+    public class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand, Unit>
     {
         private readonly IKindergardenContext _context;
 
@@ -19,7 +19,7 @@ namespace Kindergarden.Application.Groups.Commands.UpdateGroup
             _context = context;
         }
 
-        public async Task<Unit> Handle(DeleteGroupCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateGroupCommand request, CancellationToken cancellationToken)
         {
             var entity = await _context.Groups.FindAsync(request.Id);
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Kindergarden.Application.Groups.Commands.CreateGroup
 {
-    public class UpdateGroupCommand : IRequest<int>
+    public class CreateGroupCommand : IRequest<int>
     {
         public string Description { get; set; } //Sala Rosa
         public int Year { get; set; }

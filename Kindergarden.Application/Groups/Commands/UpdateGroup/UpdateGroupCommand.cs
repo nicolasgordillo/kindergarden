@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Kindergarden.Application.Groups.Commands.UpdateGroup
 {
-    public class DeleteGroupCommand : IRequest
+    public class UpdateGroupCommand : IRequest
     {
         public int Id { get; set; }
         public string Description { get; set; } //Sala Rosa

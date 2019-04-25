@@ -5,17 +5,17 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kindergarden.Domain", "Kindergarden.Domain\Kindergarden.Domain.csproj", "{E1D8DA02-02DA-4BB2-9B9A-0BA5AE303F14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kindergarden.API", "Kindergarden.API\Kindergarden.API.csproj", "{0F743316-A5E5-4B3B-84CF-4444D0F1E4EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kindergarden.API", "Kindergarden.API\Kindergarden.API.csproj", "{0F743316-A5E5-4B3B-84CF-4444D0F1E4EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{755503C0-019B-484A-B4B9-37638D6B4CD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kindergarden.Application", "Kindergarden.Application\Kindergarden.Application.csproj", "{311F5968-3629-4389-9B8E-CB71B26F5A45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kindergarden.Application", "Kindergarden.Application\Kindergarden.Application.csproj", "{311F5968-3629-4389-9B8E-CB71B26F5A45}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{148BE0AA-A6F9-4A2D-8FF9-121F44041857}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kindergarden.Persistence", "Kindergarden.Persistence\Kindergarden.Persistence.csproj", "{CEF76754-557C-435C-A1F8-06C5E4AD7B47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kindergarden.Persistence", "Kindergarden.Persistence\Kindergarden.Persistence.csproj", "{CEF76754-557C-435C-A1F8-06C5E4AD7B47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kindergarden.Infrastructure", "Kindergarden.Infrastructure\Kindergarden.Infrastructure.csproj", "{D5ED77D7-B2C4-4DF4-8177-35F3B6BE886A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kindergarden.Infrastructure", "Kindergarden.Infrastructure\Kindergarden.Infrastructure.csproj", "{D5ED77D7-B2C4-4DF4-8177-35F3B6BE886A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{A16A5EA8-919F-464E-BC59-08ED43DFBC31}"
 EndProject
@@ -25,9 +25,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{20662BF2-1EE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2F24C242-ADC1-498B-B863-6A7456333E9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kindergarden.Application.Tests", "Kindergarden.Application.Tests\Kindergarden.Application.Tests.csproj", "{F85E069D-ABB8-44EA-A73C-B450066174B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kindergarden.Application.Tests", "Kindergarden.Application.Tests\Kindergarden.Application.Tests.csproj", "{F85E069D-ABB8-44EA-A73C-B450066174B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kindergarden.Domain.Tests", "Kindergarden.Domain.Tests\Kindergarden.Domain.Tests.csproj", "{3B65508A-047D-47A0-A970-78FB70CF40C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kindergarden.Domain.Tests", "Kindergarden.Domain.Tests\Kindergarden.Domain.Tests.csproj", "{3B65508A-047D-47A0-A970-78FB70CF40C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,6 +17,8 @@ namespace Kindergarden.Persistence
 
         public DbSet<Message> Messages { get; set; }
 
+        public DbSet<MessageType> MessageTypes { get; set; }
+
         public DbSet<Person> Persons { get; set; }
 
         public DbSet<Student> Students { get; set; }

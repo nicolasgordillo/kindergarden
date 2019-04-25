@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Kindergarden.Application.Groups.Commands.CreateGroup
+namespace Kindergarden.Application.Messages.Commands.CreateMessage
 {
     public class CreateMessageCommandValidator
     {

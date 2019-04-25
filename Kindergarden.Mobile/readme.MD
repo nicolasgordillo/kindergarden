@@ -1,0 +1,1 @@
+Configurado para funcionar con AppFlow de Ionic.
