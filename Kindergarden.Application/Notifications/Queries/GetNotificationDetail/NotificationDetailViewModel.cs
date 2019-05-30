@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kindergarden.Application.Notifications.Queries.GetNotificationDetail
 {
-    public class GroupDetailViewModel
+    public class NotificationDetailViewModel
     {
         public int Id { get; set; }
 

@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace Kindergarden.Application.Notifications.Queries.GetNotificationDetail
 {
-    public class GetGroupDetailQueryHandler
+    public class GetNotificationDetailQueryHandler
     {
         private readonly IKindergardenContext _context;
         private readonly IMapper _mapper;
 
-        public GetGroupDetailQueryHandler(IKindergardenContext context, IMapper mapper)
+        public GetNotificationDetailQueryHandler(IKindergardenContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
-        public async Task<GroupDetailViewModel> Handle(GetGroupDetailQuery request, CancellationToken cancellationToken)
+        public async Task<NotificationDetailViewModel> Handle(GetNotificationDetailQuery request, CancellationToken cancellationToken)
         {
-            var notification = _mapper.Map<GroupDetailViewModel>(await _context
+            var notification = _mapper.Map<NotificationDetailViewModel>(await _context
                 .Notifications.Where(x => x.Id == request.Id)
                 .SingleOrDefaultAsync(cancellationToken));
 

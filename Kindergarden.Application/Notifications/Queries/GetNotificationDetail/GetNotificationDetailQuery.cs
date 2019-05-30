@@ -2,7 +2,7 @@
 
 namespace Kindergarden.Application.Notifications.Queries.GetNotificationDetail
 {
-    public class GetGroupDetailQuery : IRequest<GroupDetailViewModel>
+    public class GetNotificationDetailQuery : IRequest<NotificationDetailViewModel>
     {
         public int Id { get; set; }
     }

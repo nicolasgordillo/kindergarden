@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kindergarden.Application.Groups.Commands.CreateGroup
 {
-    public class CreateMessageCommandValidator
+    public class CreateGroupCommandValidator
     {
     }
 }
