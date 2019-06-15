@@ -23,8 +23,8 @@ namespace Kindergarden.Domain.Entities
         public bool Deleted { get; set; }
         public DateTime? DeletedDate { get; set; }
 
-        public Person SentTo { get; set; }
-        public Person SentBy { get; set; }
+        public Individual SentTo { get; set; }
+        public Individual SentBy { get; set; }
         public Student Regarding { get; set; }
     }
 }

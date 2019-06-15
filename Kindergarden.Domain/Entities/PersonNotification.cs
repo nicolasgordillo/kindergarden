@@ -6,8 +6,9 @@ namespace Kindergarden.Domain.Entities
 {
     public class PersonNotification
     {
-        public int Id { get; set; }
-        public Person Receiver { get; set; }
+        public int ReceiverId { get; set; }
+        public Individual Receiver { get; set; }
+        public int NotificationId { get; set; }
         public Notification Notification { get; set; }
 
         public bool Read { get; set; }

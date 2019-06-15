@@ -14,15 +14,13 @@ namespace Kindergarden.Persistence
         public DbSet<Group> Groups { get; set; }
 
         public DbSet<Notification> Notifications { get; set; }
-
         public DbSet<Message> Messages { get; set; }
 
-        public DbSet<MessageType> MessageTypes { get; set; }
-
-        public DbSet<Person> Persons { get; set; }
-
+        //No se puede acceder a todas las personas ya que no se crean objetos de tipo Persona directamente
+        public DbSet<Individual> Individuals { get; set; }
         public DbSet<Student> Students { get; set; }
 
+        public DbSet<MessageType> MessageTypes { get; set; }
         public DbSet<DocumentType> DocumentTypes { get; set; }
 
         public DbSet<Role> Roles { get; set; }

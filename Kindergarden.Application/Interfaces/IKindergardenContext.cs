@@ -13,15 +13,12 @@ namespace Kindergarden.Application.Interfaces
         DbSet<Group> Groups { get; set; }
 
         DbSet<Notification> Notifications { get; set; }
-
         DbSet<Message> Messages { get; set; }
 
-        DbSet<MessageType> MessageTypes { get; set; }
-
-        DbSet<Person> Persons { get; set; }
-
+        DbSet<Individual> Individuals { get; set; }
         DbSet<Student> Students { get; set; }
 
+        DbSet<MessageType> MessageTypes { get; set; }
         DbSet<DocumentType> DocumentTypes { get; set; }
 
         DbSet<Role> Roles { get; set; }

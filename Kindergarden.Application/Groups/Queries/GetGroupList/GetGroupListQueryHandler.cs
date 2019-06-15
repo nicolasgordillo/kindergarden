@@ -27,7 +27,7 @@ namespace Kindergarden.Application.Groups.Queries.GetGroupList
 
             if (request.PersonId.HasValue)
             {
-                groups = _context.Persons.Where(x => x.Id == request.PersonId).Include(x => x.Groups).FirstOrDefault()?.Groups.ToList();
+                groups = _context.Groups.Where(x => x.FamilyMembers.FirstOrDefault(p => p.FamilyMemberId == request.PersonId) != null).Include(x => x.Teacher).ToList();
             } else
             {
                 groups = await _context.Groups.OrderBy(p => p.Description).Include(p => p.Teacher).ToListAsync(cancellationToken);

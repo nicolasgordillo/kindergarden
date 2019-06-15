@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kindergarden.Domain.Enumerations;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,8 +10,7 @@ namespace Kindergarden.Domain.Entities
         public Group()
         {
             //Initialized by DI or EF. It has private access so nobody can accidentally set it's value
-            FamilyMembers = new HashSet<Person>();
-            Notifications = new HashSet<Notification>();
+            FamilyMembers = new HashSet<IndividualGroup>();
         }
 
         public int Id { get; set; }
@@ -18,11 +18,10 @@ namespace Kindergarden.Domain.Entities
         public string Description { get; set; } //Sala Rosa
         public int Year { get; set; }
         public string Section { get; set; } //1C
-        public string TimeSpan { get; set; } //Turno
+        public TimespanEnum TimeSpan { get; set; } //Turno mañana o tarde
         public bool Active { get; set; }
 
-        public Person Teacher { get; set; }
-        public ICollection<Person> FamilyMembers { get; private set; } //ICollection implements IEnumerable
-        public ICollection<Notification> Notifications { get; private set; }
+        public Individual Teacher { get; set; }
+        public ICollection<IndividualGroup> FamilyMembers { get; private set; } //ICollection implements IEnumerable
     }
 }

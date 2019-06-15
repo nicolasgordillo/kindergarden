@@ -7,7 +7,10 @@ namespace Kindergarden.Domain.Entities
 {
     public class StudentFamilyMember
     {
-        public Person FamilyMember { get; set; }
+        public int FamilyMemberId { get; set; }
+        public Individual FamilyMember { get; set; }
+
+        public int StudentId { get; set; }
         public Student Student { get; set; }
 
         public FamilyMemberEnum Relationship { get; set; }

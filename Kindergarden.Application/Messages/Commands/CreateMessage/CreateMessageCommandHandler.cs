@@ -24,8 +24,8 @@ namespace Kindergarden.Application.Messages.Commands.CreateMessage
             var entity = new Message
             {
                 Regarding = _context.Students.FirstOrDefault(x => x.Id == request.RegardingId),
-                SentBy = _context.Persons.FirstOrDefault(x => x.Id == request.SentById),
-                SentTo = _context.Persons.FirstOrDefault(x => x.Id == request.SentToId),
+                SentBy = _context.Individuals.FirstOrDefault(x => x.Id == request.SentById),
+                SentTo = _context.Individuals.FirstOrDefault(x => x.Id == request.SentToId),
                 SentDate = DateTime.Now,
                 Type = _context.MessageTypes.FirstOrDefault(x => x.Id == request.TypeId),
                 Text = request.Text

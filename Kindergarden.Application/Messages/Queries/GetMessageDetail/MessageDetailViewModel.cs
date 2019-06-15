@@ -20,8 +20,8 @@ namespace Kindergarden.Application.Messages.Queries.GetMessageDetail
         public bool Confirmed { get; set; }
         public DateTime? ConfirmedDate { get; set; }
 
-        public Person SentToFullName { get; set; }
-        public Person SentByFullName { get; set; }
+        public Individual SentToFullName { get; set; }
+        public Individual SentByFullName { get; set; }
         public Student RegardingStudentFullName { get; set; }
 
         public void CreateMappings(Profile configuration)
