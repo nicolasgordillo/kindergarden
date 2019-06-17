@@ -22,7 +22,26 @@ namespace Kindergarden.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<int>> Create([FromBody] CreateNotificationCommand command)
+        [Route("public")]
+        public async Task<ActionResult<int>> Create([FromBody] CreatePublicNotificationCommand command)
+        {
+            var notificationId = await Mediator.Send(command);
+
+            return Ok(notificationId);
+        }
+
+        [HttpPost]
+        [Route("group")]
+        public async Task<ActionResult<int>> Create([FromBody] CreateGroupNotificationCommand command)
+        {
+            var notificationId = await Mediator.Send(command);
+
+            return Ok(notificationId);
+        }
+
+        [HttpPost]
+        [Route("private")]
+        public async Task<ActionResult<int>> Create([FromBody] CreatePrivateNotificationCommand command)
         {
             var notificationId = await Mediator.Send(command);
 
