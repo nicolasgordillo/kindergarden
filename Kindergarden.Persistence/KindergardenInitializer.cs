@@ -31,11 +31,18 @@ namespace Kindergarden.Persistence
         {
             var roles = new[]
             {
-                new Role { Id = 1, Name = "Pariente", CanSendMessage = true, CanSendNotification = false },
-                new Role { Id = 2, Name = "Docente", CanSendMessage = false, CanSendNotification = true }
+                new Role { Name = "Pariente", CanSendMessage = true, CanSendNotification = false },
+                new Role { Name = "Docente", CanSendMessage = false, CanSendNotification = true }
             };
 
             context.Roles.AddRange(roles);
+
+            var documentTypes = new[]
+           {
+                new DocumentType { Description = "DNI"}
+            };
+
+            context.DocumentTypes.AddRange(documentTypes);
 
             context.SaveChanges();
         }
