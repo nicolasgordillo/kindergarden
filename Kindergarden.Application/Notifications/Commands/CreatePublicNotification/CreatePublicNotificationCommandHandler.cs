@@ -1,0 +1,59 @@
+﻿using Kindergarden.Application.Interfaces;
+using Kindergarden.Domain.Entities;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Kindergarden.Application.Notifications.Commands.CreateNotification
+{
+    public class CreatePublicNotificationCommandHandler : IRequestHandler<CreatePublicNotificationCommand, int>
+    {
+        private readonly IKindergardenContext _context;
+
+        public CreatePublicNotificationCommandHandler(IKindergardenContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<int> Handle(CreatePublicNotificationCommand request, CancellationToken cancellationToken)
+        {
+            //Verificar si el usuario tiene algun rol que permita enviar notificaciones (eg. es docente). Reemplazar por auth.
+            var user = _context.Individuals.FirstOrDefault(x => x.Id == request.PersonId);
+            if (user == null || !user.Roles.Any(x => x.CanSendNotification))
+                throw new Exception("User has not been authorized to make this request");
+
+            var entity = new Notification
+            {
+                SentDate = DateTime.Now,
+                Title = request.Title,
+                Text = request.Text,
+                Type = Domain.Enumerations.NotificationTypeEnum.Public
+            };
+
+            _context.Notifications.Add(entity);
+
+            await _context.SaveChangesAsync(cancellationToken);
+
+            //Agregar mensaje a cada individuo
+            var individuals = _context.Individuals.Select(x => x.Id).ToList();
+            foreach (var individual in individuals)
+            {
+                var personNotif = new PersonNotification()
+                {
+                    ReceiverId = individual,
+                    NotificationId = entity.Id
+                };
+
+                entity.IndividualNotifications.Add(personNotif);
+            }
+
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return entity.Id;
+        }
+    }
+}

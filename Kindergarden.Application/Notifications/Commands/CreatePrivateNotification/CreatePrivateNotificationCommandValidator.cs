@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Kindergarden.Application.Notifications.Commands.CreateNotification
 {
-    public class CreatNotificationCommandValidator
+    public class CreatePrivateNotificationCommandValidator
     {
     }
 }
