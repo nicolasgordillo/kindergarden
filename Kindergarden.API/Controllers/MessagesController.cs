@@ -10,9 +10,9 @@ namespace Kindergarden.API.Controllers
     public class MessagesController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<MessageListViewModel>> GetAll()
+        public async Task<ActionResult<MessageListViewModel>> GetAll(int id)
         {
-            return Ok(await Mediator.Send(new GetMessageListQuery()));
+            return Ok(await Mediator.Send(new GetMessageListQuery { ReceivedBy = id }));
         }
 
         [HttpGet("{id}")]
