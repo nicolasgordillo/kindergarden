@@ -10,9 +10,9 @@ namespace Kindergarden.API.Controllers
     public class NotificationsController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<NotificationListViewModel>> GetAll()
+        public async Task<ActionResult<NotificationListViewModel>> GetAll(int id)
         {
-            return Ok(await Mediator.Send(new GetNotificationListQuery()));
+            return Ok(await Mediator.Send(new GetNotificationListQuery { PersonId = id }));
         }
 
         [HttpGet("{id}")]

@@ -28,16 +28,9 @@ namespace Kindergarden.Application.Notifications.Queries.GetNotificationList
         {
             ICollection<NotificationDto> notifications;
 
-            if (request.PersonId.HasValue)
-            {
-                var person = await _context.Individuals.Where(x => x.Id == request.PersonId).Include(x => x.ReceivedNotifications).ThenInclude(x => x.Notification).FirstOrDefaultAsync();
+            var person = await _context.Individuals.Where(x => x.Id == request.PersonId).Include(x => x.ReceivedNotifications).ThenInclude(x => x.Notification).FirstOrDefaultAsync();
 
-                notifications = _mapper.Map<ICollection<NotificationDto>>(person?.ReceivedNotifications.OrderByDescending(x => x.Notification.SentDate));
-            }
-            else
-            {
-                notifications = _mapper.Map<ICollection<NotificationDto>>(await _context.Notifications.OrderByDescending(x => x.SentDate).ToListAsync(cancellationToken));
-            }
+            notifications = _mapper.Map<ICollection<NotificationDto>>(person?.ReceivedNotifications.OrderByDescending(x => x.Notification.SentDate));
 
             return new NotificationListViewModel
             {

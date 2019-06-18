@@ -1,6 +1,7 @@
 ﻿using Kindergarden.Application.Interfaces;
 using Kindergarden.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,8 @@ namespace Kindergarden.Application.Notifications.Commands.CreateNotification
         public async Task<int> Handle(CreatePrivateNotificationCommand request, CancellationToken cancellationToken)
         {
             //Verificar si el usuario tiene algun rol que permita enviar notificaciones (eg. es docente). Reemplazar por auth.
-            var user = _context.Individuals.FirstOrDefault(x => x.Id == request.PersonId);
-            if (user == null || !user.Roles.Any(x => x.CanSendNotification))
+            var user = _context.Individuals.Include(x => x.Roles).ThenInclude(r => r.Role).FirstOrDefault(x => x.Id == request.PersonId);
+            if (user == null || !user.Roles.Any(x => x.Role.CanSendNotification))
                 throw new Exception("User has not been authorized to make this request");
 
             var receiver = _context.Individuals.Where(x => x.Id == request.ReceiverId).FirstOrDefault();
