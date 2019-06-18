@@ -41,6 +41,11 @@ Implementa la capa de persistencia y contiene toda la configuración para mapear
 Contiene una referencia a Domain, cuyo modelo se persistirá. Hay también referencias a EF Core y Microsoft.EntityFrameworkCore.SqlServer ya que es el motor de base de datos elegido.
 
 # Cómo usar
+- Abrir con Visual Studio 2017
+- Configurar credenciales de base de datos en Kindergarden.API\appsettings.json
+- Abrir nuget package manager, seleccionar proyecto Persistence y ejecutar: update-database
+- Ejecutar
+- En /swagger se dispone de una UI desde la que se pueden realizar invocaciones a la API. Solo un subconjunto se encuentra activo actualmente, otros datos se encuentran pre-cargados en la base de datos para poder utilizar y probar estos métodos.
 
 # Cómo cambiar de opciones de persitencia
 
