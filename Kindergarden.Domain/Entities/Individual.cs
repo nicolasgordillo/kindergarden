@@ -13,7 +13,7 @@ namespace Kindergarden.Domain.Entities
             SentMessages = new HashSet<Message>();
             ReceivedMessages = new HashSet<Message>();
             Students = new HashSet<StudentFamilyMember>();
-            Roles = new HashSet<Role>();
+            Roles = new HashSet<PersonRole>();
         }
 
         public string CellPhone { get; set; }
@@ -27,6 +27,6 @@ namespace Kindergarden.Domain.Entities
         public ICollection<Message> ReceivedMessages { get; private set; }
         public ICollection<PersonNotification> ReceivedNotifications { get; private set; }
         public ICollection<StudentFamilyMember> Students { get; private set; }
-        public ICollection<Role> Roles { get; private set; }
+        public ICollection<PersonRole> Roles { get; private set; }
     }
 }

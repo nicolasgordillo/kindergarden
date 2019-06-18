@@ -6,6 +6,11 @@ namespace Kindergarden.Domain.Entities
 {
     public class Role
     {
+        public Role()
+        {
+            Persons = new HashSet<PersonRole>();
+        }
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -15,5 +20,7 @@ namespace Kindergarden.Domain.Entities
 
         //Puede enviar notificaciones (texto libre)
         public bool CanSendNotification { get; set; }
+
+        public ICollection<PersonRole> Persons { get; private set; }
     }
 }
