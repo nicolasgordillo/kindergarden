@@ -47,7 +47,7 @@ Contiene una referencia a Domain, cuyo modelo se persistirá. Hay también refer
 - Ejecutar
 - En /swagger se dispone de una UI desde la que se pueden realizar invocaciones a la API. Solo un subconjunto se encuentra activo actualmente, otros datos se encuentran pre-cargados en la base de datos para poder utilizar y probar estos métodos.
 
-# Cómo cambiar de opciones de persitencia
+# Cómo cambiar de opciones de persistencia
 
 # Referencias
 Trabajo basado en la implementación de Jason Taylor de Clean Architecture.
