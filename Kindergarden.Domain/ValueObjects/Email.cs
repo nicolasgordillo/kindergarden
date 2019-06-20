@@ -35,5 +35,10 @@ namespace Kindergarden.Domain.ValueObjects
         {
             yield return Address;
         }
+
+        public override string ToString()
+        {
+            return this.Address.ToString();
+        }
     }
 }

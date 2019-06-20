@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Kindergarden.Application.Exceptions;
 using Kindergarden.Application.Interfaces;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Kindergarden.Application.Messages.Queries.GetMessageDetail
 {
-    public class GetMessageDetailQueryHandler
+    public class GetMessageDetailQueryHandler : IRequestHandler<GetMessageDetailQuery, MessageDetailViewModel>
     {
         private readonly IKindergardenContext _context;
         private readonly IMapper _mapper;
@@ -25,7 +26,8 @@ namespace Kindergarden.Application.Messages.Queries.GetMessageDetail
         public async Task<MessageDetailViewModel> Handle(GetMessageDetailQuery request, CancellationToken cancellationToken)
         {
             var Message = _mapper.Map<MessageDetailViewModel>(await _context
-                .Messages.Include("Type, SentTo, SentBy, Regarding").Where(x => x.Id == request.Id)
+                .Messages.Include(x => x.Type).Include(x => x.SentTo).Include(x => x.SentBy).Include(x => x.Regarding)
+                .Where(x => x.Id == request.Id)
                 .SingleOrDefaultAsync(cancellationToken));
 
             if (Message == null)

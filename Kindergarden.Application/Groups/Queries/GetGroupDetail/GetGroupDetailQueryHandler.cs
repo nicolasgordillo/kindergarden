@@ -2,6 +2,7 @@
 using Kindergarden.Application.Exceptions;
 using Kindergarden.Application.Interfaces;
 using Kindergarden.Domain.Entities;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Kindergarden.Application.Groups.Queries.GetGroupDetail
 {
-    public class GetGroupDetailQueryHandler
+    public class GetGroupDetailQueryHandler : IRequestHandler<GetGroupDetailQuery, GroupDetailViewModel>
     {
         private readonly IKindergardenContext _context;
         private readonly IMapper _mapper;

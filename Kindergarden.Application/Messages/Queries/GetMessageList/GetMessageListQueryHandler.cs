@@ -25,9 +25,9 @@ namespace Kindergarden.Application.Messages.Queries.GetMessageList
         {
             List<Message> messages;
 
-            messages = await _context.Messages.Where(x => (request.ReceivedBy == null || x.Id == request.ReceivedBy)
-                    && (request.SentBy == null || x.Id == request.SentBy))
-                .Include(x => x.Type).Include(x => x.Regarding).ToListAsync();
+            messages = await _context.Messages.Where(x => (request.ReceivedBy == null || x.SentTo.Id == request.ReceivedBy)
+                    && (request.SentBy == null || x.SentBy.Id == request.SentBy))
+                .Include(x => x.Type).Include(x => x.SentBy).Include(x => x.SentTo).Include(x => x.Regarding).ToListAsync();
 
             var model = new MessageListViewModel
             {

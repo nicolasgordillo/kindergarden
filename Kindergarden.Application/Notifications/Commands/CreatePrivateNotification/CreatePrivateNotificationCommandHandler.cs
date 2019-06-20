@@ -24,7 +24,7 @@ namespace Kindergarden.Application.Notifications.Commands.CreateNotification
         {
             //Verificar si el usuario tiene algun rol que permita enviar notificaciones (eg. es docente). Reemplazar por auth.
             var user = _context.Individuals.Include(x => x.Roles).ThenInclude(r => r.Role).FirstOrDefault(x => x.Id == request.PersonId);
-            if (user == null || !user.Roles.Any(x => x.Role.CanSendNotification))
+            if (user == null || !user.CanSendNotification())
                 throw new Exception("User has not been authorized to make this request");
 
             var receiver = _context.Individuals.Where(x => x.Id == request.ReceiverId).FirstOrDefault();
@@ -38,10 +38,6 @@ namespace Kindergarden.Application.Notifications.Commands.CreateNotification
                 Receiver = receiver
             };
 
-            _context.Notifications.Add(entity);
-
-            await _context.SaveChangesAsync(cancellationToken);
-
             //Agregar notificacion al receptor
             var personNotif = new PersonNotification()
             {
@@ -50,6 +46,10 @@ namespace Kindergarden.Application.Notifications.Commands.CreateNotification
             };
 
             entity.IndividualNotifications.Add(personNotif);
+
+            _context.Notifications.Add(entity);
+
+            await _context.SaveChangesAsync(cancellationToken);
 
             return entity.Id;
         }

@@ -1,6 +1,7 @@
 ﻿using Kindergarden.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Kindergarden.Domain.Entities
@@ -28,5 +29,15 @@ namespace Kindergarden.Domain.Entities
         public ICollection<PersonNotification> ReceivedNotifications { get; private set; }
         public ICollection<StudentFamilyMember> Students { get; private set; }
         public ICollection<PersonRole> Roles { get; private set; }
+
+        public bool CanSendNotification()
+        {
+            return this.Roles.Any(x => x.Role.CanSendNotification);
+        }
+
+        public bool CanSendMessage()
+        {
+            return this.Roles.Any(x => x.Role.CanSendMessage);
+        }
     }
 }
